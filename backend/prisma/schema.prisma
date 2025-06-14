@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model MoodEntry {
+  id                      String                   @id @default(cuid())
+  mood                    Int
+  moodEmoji               String
+  createdAt               DateTime                 @default(now())
+  playlistRecommendations PlaylistRecommendation[]
+
+  @@map("mood_entries")
+}
+
+model PlaylistRecommendation {
+  id                  String    @id @default(cuid())
+  moodEntryId         String
+  playlistId          String
+  playlistName        String
+  playlistDescription String?
+  playlistImage       String?
+  playlistUrl         String
+  createdAt           DateTime  @default(now())
+  moodEntry           MoodEntry @relation(fields: [moodEntryId], references: [id], onDelete: Cascade)
+
+  @@map("playlist_recommendations")
+}
+
+model PlaylistHistory {
+  id         String   @id @default(cuid())
+  mood       Int
+  playlistId String
+  createdAt  DateTime @default(now())
+
+  @@map("playlist_history")
+}

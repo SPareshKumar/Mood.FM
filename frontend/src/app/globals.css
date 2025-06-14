@@ -1,0 +1,321 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom slider styles */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom shadow */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Smooth animations */
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Custom focus styles */
+.focus-ring {
+  transition: all 0.2s ease;
+}
+
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+}
+
+/* Responsive text */
+@media (max-width: 640px) {
+  .text-responsive {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+.calendar-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+/* Hover effects for calendar squares */
+.calendar-container [title]:hover {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  transform: scale(1.1);
+  z-index: 10;
+  position: relative;
+}
+
+/* Smooth transitions for calendar squares */
+.calendar-container > div > div > div {
+  transition: all 0.15s ease-in-out;
+}
+
+/* Tooltip styling enhancement */
+.calendar-container [title] {
+  position: relative;
+}
+
+
+/* Responsive adjustments for mobile */
+@media (max-width: 640px) {
+  .calendar-container {
+    font-size: 0.75rem;
+  }
+  
+  .calendar-container [class*="w-3"] {
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+  
+  .calendar-container [class*="space-x-1"] > * + * {
+    margin-left: 0.125rem;
+  }
+}
+/* Add these styles to your globals.css file */
+
+/* Spotify-specific styles */
+.spotify-card {
+  background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+}
+
+.spotify-green {
+  background-color: #1db954;
+}
+
+.spotify-green:hover {
+  background-color: #1ed760;
+}
+
+/* Enhanced shadows for depth */
+.shadow-spotify {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-spotify-hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Spotify play button animation */
+@keyframes spotifyPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(29, 185, 84, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(29, 185, 84, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(29, 185, 84, 0);
+  }
+}
+
+.spotify-play-button {
+  animation: spotifyPulse 2s infinite;
+}
+
+/* Spotify-style scrollbar for track list */
+.spotify-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.spotify-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.spotify-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+}
+
+.spotify-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Text truncation with fade effect */
+.text-fade {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-fade::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, currentColor);
+  pointer-events: none;
+}
+
+/* Spotify-style hover effects */
+.spotify-hover-lift {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.spotify-hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Enhanced glassmorphism for Spotify look */
+.spotify-glass {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Spotify-style loading animation */
+@keyframes spotifyLoading {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.spotify-loading-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #1db954;
+  animation: spotifyLoading 1.4s infinite ease-in-out both;
+}
+
+.spotify-loading-dot:nth-child(1) { animation-delay: -0.32s; }
+.spotify-loading-dot:nth-child(2) { animation-delay: -0.16s; }
+.spotify-loading-dot:nth-child(3) { animation-delay: 0s; }

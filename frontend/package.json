@@ -1,0 +1,33 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:https": "concurrently \"npm run dev\" \"npm run proxy\"",
+    "proxy": "local-ssl-proxy --source 3443 --target 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "lucide-react": "^0.515.0",
+    "next": "15.3.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.15.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20.19.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "concurrently": "^9.1.2",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.3",
+    "local-ssl-proxy": "^2.0.5",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

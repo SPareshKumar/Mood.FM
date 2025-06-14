@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import { MoodModule } from './mood/mood.module';
 import { SpotifyModule } from './spotify/spotify.module';
+import { ChatbotModule } from './chatbot/chatbot.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { SpotifyModule } from './spotify/spotify.module';
     }),
     PrismaModule,
     MoodModule,
+    ChatbotModule,
     SpotifyModule,
   ],
 })

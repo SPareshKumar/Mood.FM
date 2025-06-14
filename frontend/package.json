@@ -17,6 +17,12 @@
     "react-dom": "^19.0.0",
     "recharts": "^2.15.3"
   },
+  "/api/chatbot/*": {
+    "target": "http://localhost:3001",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
